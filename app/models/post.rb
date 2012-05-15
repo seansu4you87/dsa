@@ -9,7 +9,7 @@ class Post
   
   key :title, String, :required => true
   key :content, String
-  timestamps!
+  key :user_id, ObjectId, :required => true
   
   validate :minimum_title_length
   
