@@ -1,10 +1,8 @@
 class User 
   include MongoMapper::Document
-  #validates :email, presence: true, uniqueness: true
-  #validates :name, presence: true
-  #has_many :posts
   
   many :posts
+  many :articles
   
   key :name, String, :required => true
   key :email, String, :required => true, :unique => true
@@ -18,6 +16,14 @@ class User
     else
       false
     end
+  end
+  
+  def posts
+    Post.where(:user_id => self.id)
+  end
+  
+  def articles
+    Article.where(:user_id => self.id)
   end
   
 end
