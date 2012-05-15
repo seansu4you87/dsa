@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to admin_url
     else
-      redirect_to login_url, alert: "#{params[:email]} and #{params[:password]} is not a valid combination.  #{user.password} is the right password.  #{params[:password] == user.password}}"
+      redirect_to login_url, alert: "#{params[:email]} and #{params[:password]} is not a valid combination"
     end
   end
 

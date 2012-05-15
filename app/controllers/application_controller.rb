@@ -5,8 +5,12 @@ class ApplicationController < ActionController::Base
   
   protected
   
+  def current_user
+    User.find_by_id(session[:user_id])
+  end
+  
   def authorize
-    unless User.find_by_id(session[:user_id])
+    unless self.current_user
       redirect_to login_url, notice: 'Please log in first'
     end
   end

@@ -40,8 +40,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
-
+     @user = User.new(params[:user])
+     @user.password_confirmation = nil
+    if params[:user][:password_confirmation] != params[:user][:password]
+      respond_to do |format|
+        format.html { render action: 'new', notice: "passwords don't match" }
+      end
+      return
+    end
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
