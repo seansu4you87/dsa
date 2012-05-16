@@ -1,12 +1,10 @@
 <fieldset>
-<h1><%= photo.name %></h1>
-<p><%= photo.description %></p>
-<img src="<%= photo.file.base64 %>" height='100' width='100'>
-<p>
-  <strong>tags: </strong> 
-  <%= category_string_from_categories photo.categories %>
-</p>
-<%= link_to 'Show', photo %>
-<%= link_to 'Edit', edit_photo_path(photo) %>
-<%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %>
+  <h1><%= photo.name %></h1>
+  <p><%= photo.description %></p>
+  <img src="<%= photo.file.base64 %>" height='100' width='100'>
+  <%= link_to "full size", "photos/#{photo.id}/file" %>
+  <%= render :partial => 'categories/category_links', :locals => {:categories => photo.categories} %>
+  <%= link_to 'Show', photo %>
+  <%= link_to 'Edit', edit_photo_path(photo) %>
+  <%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %>
 </fieldset>
