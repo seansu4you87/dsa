@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= render @category %>
+
+<br/>
+<h2>Articles</h2>
+<% Article.where(:category_ids => @category.id).each do |article| %>
+  <%= render article %>
+  <br/>
+<% end %>
+
+<br/>
+<h2>Photos</h2>
+<% Photo.where(:category_ids => @category.id).each do |photo| %>
+  <%= render photo %>
+  <br/>
+<% end %>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

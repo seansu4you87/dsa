@@ -1,0 +1,9 @@
+<fieldset>
+  <h2><%= user.name %></h2>
+  <p><%= user.email %></p>
+  <p><strong>Posts: </strong><%= user.posts.count%></p>
+  <p><strong>Articles: </strong><%= user.articles.count%></p>
+  <%= link_to 'Show', user %>
+  <%= link_to 'Edit', edit_user_path(user) %>
+  <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
+</fieldset>

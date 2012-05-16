@@ -1,0 +1,11 @@
+ <fieldset>
+  <p><h3><%= article.title %></h3> by <%= link_to User.find(article.user_id).name, User.find(article.user_id) %></p>
+  <p><%= article.body %></p>
+  <p>
+    <strong>tags: </strong> 
+    <%= category_string_from_categories article.categories %>
+  </p>
+  <%= link_to 'Show', article %>
+  <%= link_to 'Edit', edit_article_path(article) %>
+  <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+</fieldset>

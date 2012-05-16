@@ -1,4 +1,7 @@
 Dsa::Application.routes.draw do
+  
+  root :to => 'users#show'
+  
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -7,13 +10,14 @@ Dsa::Application.routes.draw do
     delete  'logout'  => :destroy
   end
 
-  resources :photos
-
-  resources :articles
-
-  resources :posts
-
+  match 'profile' => 'users#show'
+  match 'photos/:id/file' => 'photos#file'
+  
   resources :users
+  resources :posts
+  resources :articles
+  resources :photos
+  resources :categories
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

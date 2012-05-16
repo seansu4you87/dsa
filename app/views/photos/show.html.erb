@@ -10,6 +10,10 @@
   <%= @photo.description %>
 </p>
 
+<img src="<%= @photo.file.base64 %>" height='100' width='100'>
+
+<br/>
+
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>

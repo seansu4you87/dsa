@@ -25,7 +25,7 @@ class PhotosController < ApplicationController
   # GET /photos/new.json
   def new
     @photo = Photo.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @photo }
@@ -40,7 +40,13 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    categories = Category.categories_from_string params[:photo][:categories]
+    params[:photo][:categories] = categories
+    
+    params[:photo][:file] = params[:photo][:file].tempfile
+    
     @photo = Photo.new(params[:photo])
+    @photo.user_id = self.current_user.id
 
     respond_to do |format|
       if @photo.save
@@ -56,6 +62,15 @@ class PhotosController < ApplicationController
   # PUT /photos/1
   # PUT /photos/1.json
   def update
+    categories = Category.categories_from_string params[:photo][:categories]
+    params[:photo][:categories] = categories
+    
+    if params[:photo][:file]
+      params[:photo][:file] = params[:photo][:file].tempfile
+    else
+      params[:photo][:file] = nil
+    end
+    
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
@@ -80,4 +95,12 @@ class PhotosController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def file
+    photo = Photo.find(params[:id])
+    grid_io_data = photo.file.get_from_gridfs
+    bytes = grid_io_data.read
+    send_data(bytes, :type => photo.file_content_type, :disposition => 'inline')
+  end
+  
 end

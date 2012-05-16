@@ -1,14 +1,16 @@
-class User 
+class User
   include MongoMapper::Document
   
+  timestamps!
+  
   many :posts
+  many :photos
   many :articles
   
   key :name, String, :required => true
   key :email, String, :required => true, :unique => true
   key :password, String, :required => true
   key :admin, Boolean, :default => false
-  timestamps!
   
   def authenticate(password_attempt)
     if self.password == password_attempt

@@ -1,6 +1,8 @@
-class Post 
+class Post
   include MongoMapper::Document
-  
+
+  timestamps!
+
   belongs_to :user
   key :user_id, ObjectId, :required => true
   

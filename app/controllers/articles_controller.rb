@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+  
   def index
     @articles = Article.all
 
@@ -40,6 +41,9 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    categories = Category.categories_from_string params[:article][:categories]
+    params[:article][:categories] = categories
+    
     @article = Article.new(params[:article])
     @article.user_id = self.current_user.id
 
@@ -57,6 +61,9 @@ class ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.json
   def update
+    categories = Category.categories_from_string params[:article][:categories]
+    params[:article][:categories] = categories
+    
     @article = Article.find(params[:id])
 
     respond_to do |format|

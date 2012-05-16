@@ -1,0 +1,7 @@
+<fieldset>
+  <p><h2><%= post.title %></h2> by <%= link_to User.find(post.user_id).name, User.find(post.user_id) %></p>
+  <p><%= post.content %></p>
+  <%= link_to 'Show', post %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
+</fieldset>
