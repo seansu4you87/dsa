@@ -20,12 +20,22 @@ class User
     end
   end
   
-  def posts
-    Post.where(:user_id => self.id)
-  end
-  
-  def articles
-    Article.where(:user_id => self.id)
+  def categories
+    categories = []
+    
+    self.photos.each do |photo|
+      photo.categories.each do |category|
+        categories |= [category]
+      end
+    end
+    
+    self.articles.each do |article|
+      article.categories.each do |category|
+        categories |= [category]
+      end
+    end
+    
+    categories
   end
   
 end

@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_filter :authorize
+  #layout nil
   
   def new
+    render :layout => false
   end
 
   def create

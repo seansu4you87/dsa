@@ -20,4 +20,12 @@ class Category
     categories
   end
   
+  def photos
+    Photo.where( {category_ids: self.id} )
+  end
+  
+  def articles
+    Article.where( {category_ids: self.id} )
+  end
+  
 end

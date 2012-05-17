@@ -1,5 +1,7 @@
 Dsa::Application.routes.draw do
   
+  resources :polls
+
   root :to => 'users#show'
   
   get 'admin' => 'admin#index'
