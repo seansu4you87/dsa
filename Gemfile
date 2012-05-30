@@ -2,17 +2,13 @@ require 'rubygems'
 require 'mongo'
 
 source 'http://gemcutter.org'
-#source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-
 gem 'mongo_mapper'
 gem 'mm-attach-it'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
+# gem 'rails',     :git => 'git://github.com/rails/rails.git
 
 group :development do
   gem 'sqlite3', '1.3.5'
@@ -32,18 +28,14 @@ end
 
 gem 'jquery-rails'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-group :test do
-  # Pretty printed test output
-  #gem 'turn', :require => false
-  gem 'capybara', '1.1.2'
+group :test, :spec, :cucumber do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'spork'
+  gem 'launchy'
 end
 

@@ -43,7 +43,9 @@ module Dsa
     
     #Configure the default orm
     config.generators do |g|
-      g.orm     :mongo_mapper
+      g.orm                 :mongo_mapper
+      g.template_engine     :erb
+      g.test_framework      :rspec
     end
 
     # Configure sensitive parameters which will be filtered from the log file.

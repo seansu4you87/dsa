@@ -14,8 +14,9 @@ class Category
       if category == nil
         category = Category.new
         category.name = name
+        category.save
       end
-      categories << category
+      categories |= [category]
     end
     categories
   end
