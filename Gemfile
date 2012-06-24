@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 gem 'mongo_mapper'
 gem 'mm-attach-it'
 
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git
 
@@ -31,6 +32,8 @@ gem 'jquery-rails'
 group :test, :spec, :cucumber do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rails3-generators'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-rails'

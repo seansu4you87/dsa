@@ -8,7 +8,7 @@ class Poll
   
   many :votes
 
-  key :name, String
+  key :name, String, :required => true
   key :description, String
 
 end

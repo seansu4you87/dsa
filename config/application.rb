@@ -45,7 +45,8 @@ module Dsa
     config.generators do |g|
       g.orm                 :mongo_mapper
       g.template_engine     :erb
-      g.test_framework      :rspec
+      g.test_framework      :rspec, :ficture => true
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
 
     # Configure sensitive parameters which will be filtered from the log file.
