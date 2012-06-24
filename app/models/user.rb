@@ -1,16 +1,18 @@
 class User
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   
-  timestamps!
+  field :name, type: String
+  field :email, type: String
+  field :password, type: String
+  field :admin, type: Boolean, default: false
   
-  many :posts
-  many :photos
-  many :articles
+  has_many :posts
+  has_many :photos
+  has_many :articles
   
-  key :name, String, :required => true
-  key :email, String, :required => true, :unique => true
-  key :password, String, :required => true
-  key :admin, Boolean, :default => false
+  validates_presence_of :name, :email, :password
+  validates_uniqueness_of :email
   
   def authenticate(password_attempt)
     if self.password == password_attempt

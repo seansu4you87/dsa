@@ -6,9 +6,6 @@ describe User do
   end
   
   after(:each) do
-    MongoMapper.database.collections.each do |collection|
-      collection.remove  
-    end
   end
   
   before { @user = create(:user) }

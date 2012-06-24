@@ -1,12 +1,20 @@
 class Post
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  timestamps!
-
-  belongs_to :user
-  key :user_id, ObjectId, :required => true
+  field :title, type: String
+  field :content, type: String
   
-  key :title, String, :required => true
-  key :content, String
+  belongs_to :user
+  
+  validates_presence_of :title, :user
+  
+  #timestamps!
+
+  #belongs_to :user
+  #key :user_id, ObjectId, :required => true
+  
+  #key :title, String, :required => true
+  #key :content, String
   
 end

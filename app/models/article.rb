@@ -1,18 +1,16 @@
 class Article
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   
-  timestamps!
+  field :title, type: String
+  field :body, type: String
+  field :private, type: Boolean
+  field :published, type: Boolean
+  field :homepage, type: Boolean, default: false
   
   belongs_to :user
-  key :user_id, ObjectId, :required => true
+  has_and_belongs_to_many :categories
   
-  many :categories, :in => :category_ids
-  key :category_ids, Array
-  
-  key :title, String, :required => true
-  key :body, String, :required => true
-  key :private, Boolean
-  key :published, Boolean
-  key :homepage, Boolean, :default => false
+  validates_presence_of :title, :body, :user
   
 end

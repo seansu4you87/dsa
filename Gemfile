@@ -4,8 +4,8 @@ require 'mongo'
 source 'http://gemcutter.org'
 
 gem 'rails', '3.1.0'
-
 gem 'mongoid', '~> 3.0.0.rc'
+#gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
 ### Mongo Mapper gems
 #gem 'mongo_mapper'
