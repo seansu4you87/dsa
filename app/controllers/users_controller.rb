@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:name, :email)
+    #@users = User.order(:name, :email)
+    @users = User.all.to_a
 
     respond_to do |format|
       format.html # index.html.erb
