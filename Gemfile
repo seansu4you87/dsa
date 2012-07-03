@@ -33,10 +33,13 @@ group :test, :spec, :cucumber do
   gem 'rails3-generators'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'spork'
   gem 'launchy'
+end
+
+group :test do
+  gem 'cucumber'
+  gem 'cucumber-rails'
 end
 
