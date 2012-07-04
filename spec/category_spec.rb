@@ -6,9 +6,6 @@ describe Category do
   end
   
   after(:each) do
-    MongoMapper.database.collections.each do |collection|
-      collection.remove
-    end
   end
   
   before { @category = build(:category) }
@@ -56,7 +53,7 @@ describe Category do
       photo1.categories << @category
       photo1.save!
       
-      category.photos.count.should == 1
+      @category.photos.count.should == 1
       
       photo2 = build(:photo)
       photo2.categories << @category

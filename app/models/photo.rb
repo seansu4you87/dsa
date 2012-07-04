@@ -1,21 +1,20 @@
 class Photo
-  include MongoMapper::Document
-  plugin AttachIt
+  include Mongoid::Document
+  include Mongoid::Timestamps
   
-  has_attachment :file, { 
-    :storage => 'gridfs',
-    #:styles => { :small => '679x516>' }
-  }
-
-  timestamps!
+  field :name, type: String
+  field :description, type: String
   
   belongs_to :user
-  key :user_id, ObjectId, :required => true
+  has_and_belongs_to_many :categories
   
-  many :categories, :in => :category_ids
-  key :category_ids, Array
+  validates_presence_of :name, :description, :user
   
-  key :name, String, :required => true
-  key :description, String, :required => true
+  #plugin AttachIt
+  
+  #has_attachment :file, { 
+  #  :storage => 'gridfs',
+  #  #:styles => { :small => '679x516>' }
+  #}
   
 end

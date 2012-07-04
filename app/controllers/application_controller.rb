@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   protected
   
   def current_user
-    User.find_by_id(session[:user_id])
+    if session[:user_id] == nil
+      return nil
+    end
+    User.find(session[:user_id])
   end
   
   def authorize

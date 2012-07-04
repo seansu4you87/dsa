@@ -1,14 +1,10 @@
 require 'spec_helper'
 
 describe Poll do
-  before(:each) do
-    
+  before(:each) do 
   end
   
   after(:each) do
-    MongoMapper.database.collections.each do |collection|
-      collection.remove
-    end
   end
   
   before { @poll = create(:poll) }

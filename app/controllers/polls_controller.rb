@@ -2,7 +2,7 @@ class PollsController < ApplicationController
   # GET /polls
   # GET /polls.json
   def index
-    @polls = Poll.all
+    @polls = Poll.all.to_a
 
     respond_to do |format|
       format.html # index.html.erb

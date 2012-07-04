@@ -1,25 +1,23 @@
 class Poll
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  timestamps!
+  field :name, type: String
+  field :description, type: String
   
   belongs_to :user
-  key :user_id, ObjectId, :required => true
+  embeds_many :votes
   
-  many :votes
-
-  key :name, String, :required => true
-  key :description, String
+  validates_presence_of :name, :user
 
 end
 
 class Vote
-  include MongoMapper::EmbeddedDocument
+  include Mongoid::Document
   
-  timestamps!
+  field :value, type: String
   
-  belongs_to :user
-  key :user_id, ObjectId, :required => true
+  embedded_in :user
   
-  key :value, String
+  validates_presence_of :user, :value
 end

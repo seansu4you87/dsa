@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   
   def index
-    @articles = Article.all
+    @articles = Article.all.to_a
 
     respond_to do |format|
       format.html # index.html.erb

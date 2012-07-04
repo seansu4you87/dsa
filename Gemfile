@@ -4,9 +4,7 @@ require 'mongo'
 source 'http://gemcutter.org'
 
 gem 'rails', '3.1.0'
-gem 'mongo_mapper'
-gem 'mm-attach-it'
-
+gem 'mongoid', '~> 3.0.0.rc'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git
@@ -35,10 +33,13 @@ group :test, :spec, :cucumber do
   gem 'rails3-generators'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'spork'
   gem 'launchy'
+end
+
+group :test do
+  gem 'cucumber'
+  gem 'cucumber-rails'
 end
 
