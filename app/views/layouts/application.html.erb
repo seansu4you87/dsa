@@ -1,23 +1,131 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Dsa</title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    
-    <%= link_to 'Admin', admin_url %>
-    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
-    <%= link_to 'Users', users_path %>
-    <%= link_to 'Posts', posts_path %>
-    <%= link_to 'Articles', articles_path %>
-    <%= link_to 'Photos', photos_path %>
-    <%= link_to 'Categories', categories_path %>
-    <%= link_to 'Polls', polls_path %>
+	<head>
+		<link rel="stylesheet" type="text/css" href="http://www.iamjoetaylor.com/dsa/wt-rotator.css"/>
+		<link rel="stylesheet" href="http://www.iamjoetaylor.com/dsa/css/stylesheet.css" />
+		
+		<script type="text/javascript" src="http://www.iamjoetaylor.com/dsa/js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="http://www.iamjoetaylor.com/dsa/js/jquery.wt-rotator.min.js"></script>
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+		      $(".container").wtRotator({
+					width:960,
+					height:300,
+					transition:"random",
+					auto_center:true,
+					cpanel_position:"outside",
+					display_thumbs:false,
+					display_dbuttons:true,
+					display_playbutton:true,
+					display_numbers:true,
+					block_size:90,
+					vert_size:40,
+					horz_size:40,
+					transition_speed:300,
+					mousewheel_scroll:false
+				});
+		   });
+		</script>
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1 id="logo">
+					<a href="/">Contra Costa County Deputy Sheriffs Association</a>
+				</h1>
+				
+				<ul>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Board</a></li>
+					<li><a href="#">Events</a></li>
+					<li><a href="#">About Us</a></li>
+				</ul>
+			</div><!-- End of Header -->
+			
+			<div id="content">
+				<div id="slideshow">
 
-    <%= yield %>
+					<div class="container">
+						<div class="wt-rotator">
+					    	<div class="screen">
+					            <noscript>
+					            	<!-- placeholder 1st image when javascript is off -->
+					                <img src="images/madness_arch2.jpg"/>
+					            </noscript>
+					      	</div>
+					        <div class="c-panel">
+					      		<div class="thumbnails">
+					                <ul>
+					                    <li>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example.png"/></a>
+					                        <a href="#" target="_blank"></a>                        
+					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
+					                           <h1>Banner Rotator</h1>
+					                           Lorem ipsum no sed posse dicit, cum affert hendrerit suscipiantur in. Est an quod amet utroque, perpetua eloquentiam ea pri. 
+					                           In vim alii dicam disputationi. Mea ne dicat commune petentium, dicit utamur percipit nec id. 
+					                           Id velit semper fierent eum.
+					                       	</div>
+					                    </li>
+					                    <li>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_2.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example_2.png"/></a>
+					                        <a href="#" target="_blank"></a>                        
+					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
+					                           <h1>Banner Rotator</h1>
+					                           Lorem ipsum no sed posse dicit, cum affert hendrerit suscipiantur in. Est an quod amet utroque, perpetua eloquentiam ea pri. 
+					                           In vim alii dicam disputationi. Mea ne dicat commune petentium, dicit utamur percipit nec id. 
+					                           Id velit semper fierent eum.
+					                       	</div>
+					                    </li>
+					                    <li>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_3.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example_3.png"/></a>
+					                        <a href="#" target="_blank"></a>                        
+					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
+					                           <h1>Banner Rotator</h1>
+					                           Lorem ipsum no sed posse dicit, cum affert hendrerit suscipiantur in. Est an quod amet utroque, perpetua eloquentiam ea pri. 
+					                           In vim alii dicam disputationi. Mea ne dicat commune petentium, dicit utamur percipit nec id. 
+					                           Id velit semper fierent eum.
+					                       	</div>
+					                    </li>
+					                
+					              	</ul>
+					          	</div>     
+					  			<div class="buttons">
+					            	<div class="prev-btn"></div>
+					                <div class="play-btn"></div>    
+					            	<div class="next-btn"></div>               
+					            </div>
+					        </div>
+					    </div>	
+					</div>
 
-  </body>
+				</div><!-- End of Slideshow -->
+				<div class="leftCol">
+			    	<%= yield %>
+				</div>
+				<div class="rightCol">
+					<h2>Recent News</h2>
+					<div class="news">
+						<h3>New DSA website</h3>
+
+						<p>Today we launched a new website, lorem ipsum dolar lorem  dolar lorem ipsum dolar lorem ipsum dolar lorem ipsum dolar lorem dolar lorem ipsum dolar.</p>
+						<div class="meta">Posted 2-23-12</div>
+					</div>
+				</div>
+				<br class="clear">
+			</div><!-- End of Content -->
+		</div><!-- End of Wrapper -->
+		
+		<%= link_to 'Admin', admin_url %>
+	    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
+	    <%= link_to 'Users', users_path %>
+	    <%= link_to 'Posts', posts_path %>
+	    <%= link_to 'Articles', articles_path %>
+	    <%= link_to 'Photos', photos_path %>
+	    <%= link_to 'Categories', categories_path %>
+	    <%= link_to 'Polls', polls_path %>
+
+	    
+	</body>
 </html>
