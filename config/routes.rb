@@ -2,8 +2,9 @@ Dsa::Application.routes.draw do
   
   resources :polls
 
-  root :to => 'users#show'
+  root :to => 'articles#home_article'
   
+  get 'logout' => 'sessions#destroy'
   get 'admin' => 'admin#index'
 
   controller :sessions do

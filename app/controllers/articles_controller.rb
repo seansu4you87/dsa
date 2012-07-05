@@ -2,6 +2,15 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   
+  def home_article
+    @articles = Article.all.to_a
+
+    respond_to do |format|
+      format.html { redirect_to @articles[0] }
+      format.json { render json: @articles }
+    end
+  end
+  
   def index
     @articles = Article.all.to_a
 
