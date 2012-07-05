@@ -1,0 +1,34 @@
+<div id="slideshow">
+	<div class="container">
+		<div class="wt-rotator">
+	    	<div class="screen">
+	            <noscript>
+	            	<!-- placeholder 1st image when javascript is off -->
+					Your JavaScript is off.
+	            </noscript>
+	      	</div>
+	        <div class="c-panel">
+	      		<div class="thumbnails">
+	                <ul>
+	
+						<% for @item in @items %>
+		                    <li>
+		                    	<a href="<% @item.image_url %>"><img src="<% @item.image_url %>"/></a>
+		                        <a href="<% @item.link_url %>"></a>                        
+		                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
+		                           <% @item.html %>
+		                       	</div>
+		                    </li>
+						<% end %>
+						
+	              	</ul>
+	          	</div>     
+	  			<div class="buttons">
+	            	<div class="prev-btn"></div>
+	                <div class="play-btn"></div>    
+	            	<div class="next-btn"></div>               
+	            </div>
+	        </div>
+	    </div>	
+	</div>
+</div><!-- End of Slideshow -->

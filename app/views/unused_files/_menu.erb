@@ -1,0 +1,15 @@
+<ul class="css-menu <%= @css_class %>">
+	<% for @item in @items %>
+	
+		<% if @item.children %>
+			<ul>
+				<% for @child in @item.children %>
+					<li><a href="<%= @child.url %>"><%= @child.name %></a></li>
+				<% end %>
+			</ul>
+		<% else %>
+			<li><a href="<%= @item.url %>"><%= @item.name %></a></li>
+		<% end %>
+		
+	<% end %>	
+</ul>
