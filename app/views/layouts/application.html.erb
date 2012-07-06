@@ -37,10 +37,9 @@
 				</h1>
 				
 				<ul>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Board</a></li>
-					<li><a href="#">Events</a></li>
-					<li><a href="#">About Us</a></li>
+					<% menu_items.each do |menu_item| %>
+					  <%= render menu_item %>
+					<% end %>
 				</ul>
 			</div><!-- End of Header -->
 			
@@ -125,6 +124,7 @@
 	    <%= link_to 'Photos', photos_path %>
 	    <%= link_to 'Categories', categories_path %>
 	    <%= link_to 'Polls', polls_path %>
+	    <%= link_to 'Menu Items', menu_items_path %>
 
 	    
 	</body>

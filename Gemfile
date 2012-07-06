@@ -11,6 +11,8 @@ gem 'mongoid', '~> 3.0.0.rc'
 
 group :development do
   gem 'sqlite3', '1.3.5'
+  gem 'factory_girl_rails'
+  gem "rails3-generators", :git => "https://github.com/neocoin/rails3-generators.git"
 end
 
 group :production do
@@ -30,7 +32,7 @@ gem 'jquery-rails'
 group :test, :spec, :cucumber do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rails3-generators'
+  gem "rails3-generators", :git => "https://github.com/neocoin/rails3-generators.git"
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
