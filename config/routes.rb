@@ -1,5 +1,7 @@
 Dsa::Application.routes.draw do
   
+  resources :menu_items
+
   resources :polls
 
   root :to => 'articles#home_article'

@@ -3,10 +3,10 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   
   def home_article
-    @articles = Article.all.to_a
+    @article = Article.all.to_a[0]
 
     respond_to do |format|
-      format.html { redirect_to @articles[0] }
+      format.html # home_article.html.erb
       format.json { render json: @articles }
     end
   end

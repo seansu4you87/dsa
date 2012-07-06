@@ -45,7 +45,7 @@ module Dsa
     config.generators do |g|
       g.orm                 :mongoid
       g.template_engine     :erb
-      g.test_framework      :rspec, :ficture => true
+      g.test_framework      :rspec, :ficture => true, :views => false
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
 
