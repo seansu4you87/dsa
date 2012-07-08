@@ -24,7 +24,8 @@ describe MenuItemsController do
   # MenuItem. As you add validations to MenuItem, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    menu_item = build(:menu_item)
+    {name: "hello", url: "fawe", type: "top"}
   end
   
   # This should return the minimal set of values that should be in the session

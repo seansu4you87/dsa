@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :menu_item do
-    name "MyString"
-    url "MyString"
-    type ""
+    name "Jobs"
+    url "www.dsa.com/jobs"
+    type "top"
   end
 end
