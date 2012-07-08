@@ -7,6 +7,7 @@ class Article
   field :private, type: Boolean
   field :published, type: Boolean
   field :homepage, type: Boolean, default: false
+  field :front_page?, type: Boolean, default: false
   
   belongs_to :user
   has_and_belongs_to_many :categories
