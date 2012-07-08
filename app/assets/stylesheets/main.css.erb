@@ -1,5 +1,5 @@
 body	{
-	background:url(../images/main_bg.jpg) repeat-x #000;
+	background:url(<%= asset_path "main_bg.jpg" %>) repeat-x #000;
 	margin:0;
 	padding:0;
 	font-family:Helvetica;
@@ -57,7 +57,7 @@ body	{
 		width:220px;
 		height:220px;
 		text-indent:-9999px;
-		background:url(../images/logo.png) no-repeat 0 0;
+		background:url(<%= asset_path 'logo.png' %>) no-repeat 0 0;
 	}
 	
 #content	{
@@ -90,6 +90,10 @@ body	{
 	width:960px;
 	margin:0 auto;
 	position:relative;
+}
+
+#login h1{
+    color:#FFF;
 }
 
 .wt-rotator	{

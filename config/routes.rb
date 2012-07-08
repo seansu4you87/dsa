@@ -1,8 +1,4 @@
 Dsa::Application.routes.draw do
-  
-  resources :menu_items
-
-  resources :polls
 
   root :to => 'articles#home_article'
   
@@ -23,6 +19,8 @@ Dsa::Application.routes.draw do
   resources :articles
   resources :photos
   resources :categories
+  resources :menu_items
+  resources :polls
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

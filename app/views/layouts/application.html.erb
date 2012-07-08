@@ -3,7 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="http://www.iamjoetaylor.com/dsa/wt-rotator.css"/>
 		<%= stylesheet_link_tag "main" %>
-		<%= javascript_include_tag "jquery.wt-rotator.min.js", "jquery-1.7.1.min.js" %>
+		<%= javascript_include_tag "jquery-1.7.1.min.js", "jquery.wt-rotator.min.js" %>
 		
 		<script type="text/javascript">
 		$(document).ready(function() {
@@ -41,6 +41,10 @@
 				</ul>
 			</div><!-- End of Header -->
 			
+			<div id="login">
+			  <h1>login</h1>
+			</div>
+			
 			<div id="content">
 				<div id="slideshow">
 
@@ -56,7 +60,7 @@
 					      		<div class="thumbnails">
 					                <ul>
 					                    <li>
-					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example.png"/></a>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example.png" title="architecture"><%= image_tag "slide_example.png" %></a>
 					                        <a href="#" target="_blank"></a>                        
 					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
 					                           <h1>Banner Rotator</h1>
@@ -66,7 +70,7 @@
 					                       	</div>
 					                    </li>
 					                    <li>
-					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_2.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example_2.png"/></a>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_2.png" title="architecture"><%= image_tag "slide_example_2.png" %></a>
 					                        <a href="#" target="_blank"></a>                        
 					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
 					                           <h1>Banner Rotator</h1>
@@ -76,7 +80,7 @@
 					                       	</div>
 					                    </li>
 					                    <li>
-					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_3.png" title="architecture"><img src="http://www.iamjoetaylor.com/dsa/images/thumbs/slide_example_3.png"/></a>
+					                    	<a href="http://www.iamjoetaylor.com/dsa/images/slide_example_3.png" title="architecture"><%= image_tag "slide_example_3.png" %></a>
 					                        <a href="#" target="_blank"></a>                        
 					                        <div style="top:5px; left:484px; width:336px; height:0; color:#FFF; background-color:#000;">
 					                           <h1>Banner Rotator</h1>
