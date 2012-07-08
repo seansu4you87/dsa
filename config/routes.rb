@@ -19,8 +19,8 @@ Dsa::Application.routes.draw do
   resources :articles
   resources :photos
   resources :categories
-  resources :menu_items
   resources :polls
+  resources :menu_items
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

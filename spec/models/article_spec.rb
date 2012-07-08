@@ -18,9 +18,14 @@ describe Article do
   it { should respond_to(:private) }
   it { should respond_to(:published) }
   it { should respond_to(:homepage) }
+  it { should respond_to(:front_page?) }
   
   it "should default homepage boolean to false" do
     @article.homepage.should == false
+  end
+  
+  it 'should default front_page? boolean to false' do 
+    @article.front_page?.should == false
   end
   
   it "saves when there is a user, title, and body" do
