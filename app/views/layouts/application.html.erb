@@ -41,9 +41,15 @@
 				</ul>
 			</div><!-- End of Header -->
 			
-			<div id="login">
-			  <h1>login</h1>
-			</div>
+			<% if current_user != nil %>
+			  <div id="login">
+			    <h1>logged in</h1>
+			  </div>
+			<% else %>
+			  <div id="login">
+			    <h1>login</h1>
+			  </div>
+			<% end %>
 			
 			<div id="content">
 				<div id="slideshow">

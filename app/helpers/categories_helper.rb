@@ -2,7 +2,6 @@ module CategoriesHelper
   
   def category_string_from_categories categories
     category_string = ""
-    
     categories.each do |category|
       category_string += category.name
       category_string += ', '
