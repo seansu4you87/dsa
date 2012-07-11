@@ -28,14 +28,15 @@
 					event.preventDefault();
 					var self = $(this),
 						div = self.parent(),
-						loginForm = '<form action="/">Member Login <br />                                                                                   \
-									<label for="username">Username</label><input type="text" id="username" name="user" /> <br />               \
-									<label for="password">Password</label><input type="password" id="password" name="pw" /> <br />             \
-									<input type="submit" class="submit" value="Login"/>                                                               \
-									</form>';
+						loginForm = '<%= form_tag "/login" do %>     Member Login<br />                                                                              \
+									<%= label_tag :email, 'Email:' %><%= text_field_tag :email, params[:email] %> <br />               \
+									<%= label_tag :password, 'Password:' %><%= password_field_tag :password, params[:password] %> <br />         \
+									<%= submit_tag 'Login', :class => "submit" %>                                                               \
+									 <% end %>';
 					
 					
 					if(self.hasClass("logout"))	{
+						console.log("here")
 						window.location = "/logout";
 						return;
 					}
@@ -61,13 +62,13 @@
 					<% end %>
 				</ul>
 				
-				<% if current_user != nil %>
+				<% if current_user == nil %>
 		          <div id="login">
 						<a href="#">Member Login</a>
 		        	</div>
 		        <% else %>
 		        	<div id="login">
-						<a href="#" class"logout">Logout</a>
+						<a href="#" class="logout">Logout</a>
 		        	</div>
 		        <% end %>
 								
