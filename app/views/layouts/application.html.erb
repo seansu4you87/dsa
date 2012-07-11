@@ -23,6 +23,21 @@
 					transition_speed:300,
 					mousewheel_scroll:false
 				});
+				
+				$("#login").click(function(event)	{
+					event.preventDefault();
+					var self = $(this),
+						loginForm = '<form action="/">                                                                                   \
+									<label for="username">Username</label><input type="text" id="username" name="user" />                \
+									<label for="password">Password</label><input type="password" id="password" name="pw" />              \
+									<input type="submit" class="submit" />                                                               \
+									</form>';
+					
+					if( !self.hasClass("form") )	{
+						self.html(loginForm).addClass("form");
+					}
+				});
+				
 		   });
 		</script>
 	</head>
@@ -39,18 +54,23 @@
 					  <%= render menu_item %>
 					<% end %>
 				</ul>
+				
+				<% if current_user != nil %>
+          <div id="login">
+        	  <h1>logged in</h1>
+        	</div>
+        <% else %>
+        	<div id="login">
+        		<h1>login</h1>
+        	</div>
+        <% end %>
+				
+				<div id="login">
+					Member Login
+				</div>
+				
 			</div><!-- End of Header -->
-			
-			<% if current_user != nil %>
-			  <div id="login">
-			    <h1>logged in</h1>
-			  </div>
-			<% else %>
-			  <div id="login">
-			    <h1>login</h1>
-			  </div>
-			<% end %>
-			
+						
 			<div id="content">
 				<div id="slideshow">
 
