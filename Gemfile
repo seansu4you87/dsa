@@ -1,4 +1,4 @@
-require 'rubygems'
+#require 'rubygems'
 require 'mongo'
 
 source 'http://gemcutter.org'
