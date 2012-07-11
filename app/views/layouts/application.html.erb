@@ -27,11 +27,11 @@
 				$("#login").click(function(event)	{
 					event.preventDefault();
 					var self = $(this),
-						loginForm = '<form action="/">                                                                                   \
-									<label for="username">Username</label><input type="text" id="username" name="user" />                \
-									<label for="password">Password</label><input type="password" id="password" name="pw" />              \
-									<input type="submit" class="submit" />                                                               \
-									</form>';
+						loginForm = '<%= form_tag "/login" do %>                                                                                   \
+									<%= label_tag :email, 'Email:' %><%= text_field_tag :email, params[:email] %>                \
+									<%= label_tag :password, 'Password:' %><%= password_field_tag :password, params[:password] %>              \
+									<%= submit_tag 'Login' %>                                                               \
+									 <% end %>';
 					
 					if( !self.hasClass("form") )	{
 						self.html(loginForm).addClass("form");
