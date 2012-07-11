@@ -24,17 +24,18 @@
 					mousewheel_scroll:false
 				});
 				
-				$("#login").click(function(event)	{
+				$("#login a").click(function(event)	{
 					event.preventDefault();
 					var self = $(this),
-						loginForm = '<form action="/">                                                                                   \
-									<label for="username">Username</label><input type="text" id="username" name="user" />                \
-									<label for="password">Password</label><input type="password" id="password" name="pw" />              \
+						div = self.parent(),
+						loginForm = '<form action="/">Member Login <br />                                                                                   \
+									<label for="username">Username</label><input type="text" id="username" name="user" /> <br />               \
+									<label for="password">Password</label><input type="password" id="password" name="pw" /> <br />             \
 									<input type="submit" class="submit" />                                                               \
 									</form>';
 					
-					if( !self.hasClass("form") )	{
-						self.html(loginForm).addClass("form");
+					if( !div.hasClass("form") )	{
+						div.html(loginForm).addClass("form");
 					}
 				});
 				
@@ -56,7 +57,7 @@
 				</ul>
 				
 				<div id="login">
-					Member Login
+					<a href="#">Member Login</a>
 				</div>
 				
 			</div><!-- End of Header -->
