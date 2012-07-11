@@ -79,7 +79,21 @@
 		        <% end %>
 								
 			</div><!-- End of Header -->
-						
+			
+			<% if current_user != nil %>
+			<!-- only for logged in users -->
+			<div id="member_nav">
+				<ul>
+					<li><a href="#">Meeting Notes</a></li>
+					<li><a href="#">Polls</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Message Board</a></li>
+				</ul>
+				<br class="clear">
+			</div>
+			<!-- End only for logged in users -->
+			<% end %>
+			
 			<div id="content">
 				<div id="slideshow">
 
