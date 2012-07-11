@@ -15,7 +15,6 @@ test:
 production:
   sessions:
     default:
-      database: dsa_production
       uri: <%= ENV['MONGOHQ_URL'] %>
   options:
     raise_not_found_error: false
