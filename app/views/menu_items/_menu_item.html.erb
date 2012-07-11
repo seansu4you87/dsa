@@ -1,1 +1,1 @@
-<li><a href="<%= menu_item.url %>"><%= menu_item.name %></a></li>
+<li><%= link_to_unless_current(menu_item.name, menu_item.url){|link|content_tag 'span', link, :class => 'current'} %></li>

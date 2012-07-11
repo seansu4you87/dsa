@@ -65,14 +65,14 @@
 		        	</div>
 		        <% else %>
 		        	<div id="login">
-						<%= link_to 'Admin', admin_url %>                         &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Users', users_path %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Posts', posts_path %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Articles', articles_path %>                  &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Photos', photos_path %>                      &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Categories', categories_path %>              &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Polls', polls_path %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Menu Items', menu_items_path %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+						<%= link_to_unless_current('Admin', admin_url){|link|content_tag 'span', link, :class => 'current'} %>                         &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Users', users_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Posts', posts_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Articles', articles_path){|link|content_tag 'span', link, :class => 'current'} %>                  &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Photos', photos_path){|link|content_tag 'span', link, :class => 'current'} %>                      &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Categories', categories_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Polls', polls_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Menu Items', menu_items_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
 					    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
 					
 		        	</div>
@@ -158,7 +158,8 @@
 					<h2>Recent News</h2>
 					<div class="news">
 						<% recent_articles.each do |article| %>
-						  <%= render article %>
+							<%= render :partial => 'articles/recent', :locals => {:article => article} %>
+						  
 						<% end %>
 					</div>
 				</div>
