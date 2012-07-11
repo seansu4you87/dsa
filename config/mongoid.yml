@@ -12,3 +12,12 @@ test:
       database: dsa_test
       hosts:
         - localhost:27017
+production:
+  sessions:
+    default:
+      database: dsa_production
+      hosts:
+        - localhost:27017
+  options:
+    raise_not_found_error: false
+        
