@@ -56,6 +56,16 @@
 					<% end %>
 				</ul>
 				
+				<% if current_user != nil %>
+          <div id="login">
+        	  <h1>logged in</h1>
+        	</div>
+        <% else %>
+        	<div id="login">
+        		<h1>login</h1>
+        	</div>
+        <% end %>
+				
 				<div id="login">
 					<a href="#">Member Login</a>
 				</div>
