@@ -19,7 +19,32 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  <div class="field options">
+    <%= f.label :options %><br />
+    <%= f.text_field :option, :class => "option" %><a href="#" class="add_option">+</a>
+  </div>
+  <br class="clear">
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <script>
+	$(document).ready(function()	{
+		$(".field.options").delegate(".add_option, .remove_option", "click", function(event)	{
+			event.preventDefault();
+			var button = $(this),
+				input = button.prev(),
+				isAdd = button.hasClass("add_option");
+				
+			if(isAdd)	{
+				var newInput = '<%= f.text_field :option, :class => "option" %>';
+				button.after('<a href="#" class="remove_option">-</a>');
+				$(".field.options").append(newInput).append(button);
+			}else {
+				button.remove();
+				input.remove();
+			}
+		});
+	});
+  </script
 <% end %>

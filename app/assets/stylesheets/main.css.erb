@@ -61,6 +61,9 @@ body	{
 			color:#aaa;
 			text-decoration:none;
 		}
+		#header #login .current	{
+			color:#fff;
+		}
 		#header #login.form	{
 			cursor:default;
 		}
@@ -108,6 +111,26 @@ body	{
 		background:url(<%= asset_path 'logo.png' %>) no-repeat 0 0;
 	}
 	
+#member_nav	{
+	background:#222;
+}	
+	#member_nav ul	{
+		margin:0;
+		padding:0;
+	}
+		#member_nav ul li	{
+			float:right;
+			list-style:none;
+		}
+			#member_nav ul li a	{
+				color: #555;
+				display: block;
+				font-size: 14px;
+				padding: 7px 10px;
+				text-decoration: none;
+				font-weight:100;
+			}
+
 #content	{
 	background:#eee7d8;
 	box-shadow:0 7px 6px #000;
@@ -187,5 +210,17 @@ h3	{
 	font-style: italic;
 }
 	
+	
+/*polls*/
+.field.options input	{
+	clear:left;
+	display:block;
+	float:left;
+}
+.add_option, .remove_option	{
+	display:block;
+	float:left;
+	padding:0 5px;
+}
 	
 	

@@ -25,23 +25,20 @@
 				});
 				
 				$("#login a").click(function(event)	{
-					event.preventDefault();
-					var self = $(this),
-						div = self.parent(),
-						loginForm = '<%= form_tag "/login" do %>     Member Login<br />                                                                              \
-									<%= label_tag :email, 'Email:' %><%= text_field_tag :email, params[:email] %> <br />               \
-									<%= label_tag :password, 'Password:' %><%= password_field_tag :password, params[:password] %> <br />         \
-									<%= submit_tag 'Login', :class => "submit" %>                                                               \
-									 <% end %>';
+					if($(this).hasClass("login"))	{
+						event.preventDefault();
+						var self = $(this),
+							div = self.parent(),
+							loginForm = '<%= form_tag "/login" do %>     Member Login<br />                                                                              \
+										<%= label_tag :email, 'Email:' %><%= text_field_tag :email, params[:email] %> <br />               \
+										<%= label_tag :password, 'Password:' %><%= password_field_tag :password, params[:password] %> <br />         \
+										<%= submit_tag 'Login', :class => "submit" %>                                                               \
+										 <% end %>';
 					
 					
-					if(self.hasClass("logout"))	{
-						console.log("here")
-						window.location = "/logout";
-						return;
-					}
-					if( !div.hasClass("form") )	{
-						div.html(loginForm).addClass("form");
+						if( !div.hasClass("form") )	{
+							div.html(loginForm).addClass("form");
+						}
 					}
 				});
 				
@@ -64,16 +61,39 @@
 				
 				<% if current_user == nil %>
 		          <div id="login">
-						<a href="#">Member Login</a>
+						<a class="login" href="#">Member Login</a>
 		        	</div>
 		        <% else %>
 		        	<div id="login">
-						<a href="#" class="logout">Logout</a>
+						<%= link_to_unless_current('Admin', admin_url){|link|content_tag 'span', link, :class => 'current'} %>                         &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Users', users_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Posts', posts_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Articles', articles_path){|link|content_tag 'span', link, :class => 'current'} %>                  &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Photos', photos_path){|link|content_tag 'span', link, :class => 'current'} %>                      &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Categories', categories_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Polls', polls_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to_unless_current('Menu Items', menu_items_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+					    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
+					
 		        	</div>
 		        <% end %>
 								
 			</div><!-- End of Header -->
-						
+			
+			<% if current_user != nil %>
+			<!-- only for logged in users -->
+			<div id="member_nav">
+				<ul>
+					<li><a href="#">Meeting Notes</a></li>
+					<li><a href="#">Polls</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Message Board</a></li>
+				</ul>
+				<br class="clear">
+			</div>
+			<!-- End only for logged in users -->
+			<% end %>
+			
 			<div id="content">
 				<div id="slideshow">
 
@@ -138,7 +158,8 @@
 					<h2>Recent News</h2>
 					<div class="news">
 						<% recent_articles.each do |article| %>
-						  <%= render article %>
+							<%= render :partial => 'articles/recent', :locals => {:article => article} %>
+						  
 						<% end %>
 					</div>
 				</div>
@@ -146,15 +167,6 @@
 			</div><!-- End of Content -->
 		</div><!-- End of Wrapper -->
 		
-		  <%= link_to 'Admin', admin_url %>
-	    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
-	    <%= link_to 'Users', users_path %>
-	    <%= link_to 'Posts', posts_path %>
-	    <%= link_to 'Articles', articles_path %>
-	    <%= link_to 'Photos', photos_path %>
-	    <%= link_to 'Categories', categories_path %>
-	    <%= link_to 'Polls', polls_path %>
-	    <%= link_to 'Menu Items', menu_items_path %>
 
 	    
 	</body>
