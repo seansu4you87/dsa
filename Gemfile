@@ -2,6 +2,7 @@ require 'rubygems'
 require 'mongo'
 
 source 'http://gemcutter.org'
+ruby '1.9.2'
 
 gem 'rails', '3.1.0'
 gem 'mongoid', '~> 3.0.0.rc'
