@@ -4,6 +4,7 @@ class Poll
 
   field :name, type: String
   field :description, type: String
+  field :option, type: Array
   
   belongs_to :user
   embeds_many :votes
