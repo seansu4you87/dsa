@@ -158,7 +158,7 @@
 					<h2>Recent News</h2>
 					<div class="news">
 						<% recent_articles.each do |article| %>
-							<%= render :partial => 'articles/recent', :locals => {:article => article} %>
+							<%= render :partial => 'articles/article', :locals => {:article => article} %>
 						  
 						<% end %>
 					</div>
