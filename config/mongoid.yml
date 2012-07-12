@@ -12,8 +12,8 @@ test:
       database: dsa_test
       hosts:
         - localhost:27017
-        
-<% uri = URI.parse(ENV['MONGOHQ_URL']) %>
+<% if ENV['MONGOHQ_URL'] != nil %>         
+<%= uri = URI.parse(ENV['MONGOHQ_URL']) %>
 production:
   sessions:
     default:
@@ -24,3 +24,4 @@ production:
         - <%= uri.host %>:<%= uri.port %>
   options:
     raise_not_found_error: false
+<% end %>
