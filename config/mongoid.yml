@@ -12,7 +12,7 @@ test:
       database: dsa_test
       hosts:
         - localhost:27017
-<%= uri = URI.parse("mongodb://heroku:12ec06440539a7a3ab9e3cecb853699d@flame.mongohq.com:27019/app5818796") %>
+<% uri = URI.parse("ENV['MONGOHQ_URL']") %>
 production:
   sessions:
     default:
