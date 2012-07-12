@@ -7,7 +7,7 @@ require 'active_resource/railtie'
 require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 
-if ENV[“MONGOHQ_URL”] 
+if ENV['MONGOHQ_URL'] 
   mongo_uri = URI.parse(ENV[“MONGOHQ_URL”]) 
   ENV[‘MONGOID_HOST’] = mongo_uri.host 
   ENV[‘MONGOID_PORT’] = mongo_uri.port.to_s 
