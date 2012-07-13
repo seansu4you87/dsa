@@ -7,6 +7,10 @@ require 'active_resource/railtie'
 require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 
+if ENV['MONGOHQ_URL'] == nil
+  ENV['MONGOHQ_URL'] = "mongodb://heroku:12ec06440539a7a3ab9e3cecb853699d@flame.mongohq.com:27019/app5818796"
+end
+
 if ENV['MONGOHQ_URL'] 
   mongo_uri = URI.parse(ENV['MONGOHQ_URL']) 
   ENV['MONGOID_HOST'] = mongo_uri.host 
