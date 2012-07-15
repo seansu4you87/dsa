@@ -7,6 +7,7 @@ ruby '1.9.3'
 gem 'rails', '3.1.0'
 gem 'mongoid', '~> 3.0.0.rc'
 gem 'thin'
+gem 'carrierwave'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git
