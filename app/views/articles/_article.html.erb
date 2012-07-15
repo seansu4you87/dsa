@@ -1,6 +1,7 @@
  <fieldset>
   <p><h3><%= article.title %></h3> by <%= link_to User.find(article.user_id).name, User.find(article.user_id) %></p>
   <p><%= article.body.html_safe %></p>
+  <p><strong>homepage: </strong><%= article.homepage %></p>
   <%= render :partial => 'categories/category_links', :locals => {:categories => article.categories} %>
   <%= link_to 'Show', article %>
   <%= link_to 'Edit', edit_article_path(article) %>

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   
   def home_article
-    @article = Article.all.to_a[0]
+    @article = Article.homepage_article
 
     respond_to do |format|
       format.html # home_article.html.erb
@@ -74,6 +74,9 @@ class ArticlesController < ApplicationController
     params[:article][:categories] = categories
     
     @article = Article.find(params[:id])
+    
+    puts "Sean Yu says: "
+    puts params[:article]
 
     respond_to do |format|
       if @article.update_attributes(params[:article])

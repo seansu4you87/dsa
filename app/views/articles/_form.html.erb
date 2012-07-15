@@ -28,6 +28,10 @@
     <%= f.check_box :published %>
   </div>
   <div class="field">
+    <%= f.label :homepage %><br />
+    <%= f.check_box :homepage %>
+  </div>
+  <div class="field">
     <%= f.label :categories %><br />
     <%= f.text_area :categories, :rows => 5, :value => category_string_from_categories(@article.categories) %>
   </div>
