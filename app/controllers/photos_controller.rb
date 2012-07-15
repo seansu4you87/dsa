@@ -43,7 +43,7 @@ class PhotosController < ApplicationController
     categories = Category.categories_from_string params[:photo][:categories]
     params[:photo][:categories] = categories
     
-    params[:photo][:file] = params[:photo][:file].tempfile
+    params[:photo][:avatar] = params[:photo][:avatar].tempfile
     
     @photo = Photo.new(params[:photo])
     @photo.user_id = self.current_user.id
