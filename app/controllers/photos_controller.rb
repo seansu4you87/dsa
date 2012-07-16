@@ -98,6 +98,9 @@ class PhotosController < ApplicationController
   
   def image
     @photo = Photo.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
+    end
     #grid_io_data = photo.image.url
     #bytes = grid_io_data.read
     #send_data(bytes, :type => photo.file_content_type, :disposition => 'inline')
