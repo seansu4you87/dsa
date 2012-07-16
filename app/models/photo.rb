@@ -12,11 +12,4 @@ class Photo
   
   validates_presence_of :name, :description, :user
   
-  #plugin AttachIt
-  
-  #has_attachment :file, { 
-  #  :storage => 'gridfs',
-  #  #:styles => { :small => '679x516>' }
-  #}
-  
 end
