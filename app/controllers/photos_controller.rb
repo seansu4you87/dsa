@@ -43,7 +43,7 @@ class PhotosController < ApplicationController
     categories = Category.categories_from_string params[:photo][:categories]
     params[:photo][:categories] = categories
     
-    params[:photo][:file] = params[:photo][:file].tempfile
+    params[:photo][:image] = params[:photo][:image].tempfile
     
     @photo = Photo.new(params[:photo])
     @photo.user_id = self.current_user.id
@@ -65,10 +65,10 @@ class PhotosController < ApplicationController
     categories = Category.categories_from_string params[:photo][:categories]
     params[:photo][:categories] = categories
     
-    if params[:photo][:file]
-      params[:photo][:file] = params[:photo][:file].tempfile
+    if params[:photo][:image]
+      params[:photo][:image] = params[:photo][:image].tempfile
     else
-      params[:photo][:file] = nil
+      params[:photo][:image] = nil
     end
     
     @photo = Photo.find(params[:id])
@@ -96,11 +96,14 @@ class PhotosController < ApplicationController
     end
   end
   
-  def file
-    photo = Photo.find(params[:id])
-    grid_io_data = photo.file.get_from_gridfs
-    bytes = grid_io_data.read
-    send_data(bytes, :type => photo.file_content_type, :disposition => 'inline')
+  def image
+    @photo = Photo.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+    #grid_io_data = photo.image.url
+    #bytes = grid_io_data.read
+    #send_data(bytes, :type => photo.file_content_type, :disposition => 'inline')
   end
   
 end

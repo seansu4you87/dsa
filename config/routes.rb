@@ -12,7 +12,7 @@ Dsa::Application.routes.draw do
   end
 
   match 'profile' => 'users#show'
-  match 'photos/:id/file' => 'photos#file'
+  match 'photos/:id/image' => 'photos#image'
   
   resources :users
   resources :posts

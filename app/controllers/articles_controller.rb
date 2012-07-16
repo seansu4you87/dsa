@@ -6,7 +6,12 @@ class ArticlesController < ApplicationController
     @article = Article.homepage_article
 
     respond_to do |format|
-      format.html # home_article.html.erb
+      if @article
+        format.html # home_article.html.erb
+      else
+        @articles = Article.all.to_a
+        format.html {render action: 'index' }
+      end
       format.json { render json: @articles }
     end
   end
