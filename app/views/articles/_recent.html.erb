@@ -1,0 +1,9 @@
+<div class="article">
+  <p><h3><%= link_to article.title, article %></h3><%# by <%= link_to User.find(article.user_id).name, User.find(article.user_id) #%></p>
+  <p><%= article.body.html_safe %></p>
+	<p class="date">
+		Posted 
+	</p>
+  <%= link_to 'Edit', edit_article_path(article) %>
+  <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+</div>
