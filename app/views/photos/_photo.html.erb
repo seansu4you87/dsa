@@ -2,7 +2,7 @@
   <h1><%= photo.name %></h1>
   <p><%= photo.description %></p>
   <!--<img src="<%=  %>" height='100' width='100'>-->
-  <%= link_to "full size", "photos/#{photo.id}/file" %>
+  <%= link_to "full size", "photos/#{photo.id}/image" %>
   <%= render :partial => 'categories/category_links', :locals => {:categories => photo.categories} %>
   <%= link_to 'Show', photo %>
   <%= link_to 'Edit', edit_photo_path(photo) %>
