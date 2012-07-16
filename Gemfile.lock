@@ -50,6 +50,9 @@ GEM
       xpath (~> 0.1.4)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
+    carrierwave-mongoid (0.1.0)
+      carrierwave
+      mongoid
     childprocess (0.3.3)
       ffi (~> 1.0.6)
     coffee-rails (3.1.1)
@@ -190,6 +193,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   carrierwave
+  carrierwave-mongoid
   coffee-rails (~> 3.1.0)
   cucumber
   cucumber-rails
