@@ -9,8 +9,7 @@ class ArticlesController < ApplicationController
       if @article
         format.html # home_article.html.erb
       else
-        @articles = Article.all.to_a
-        format.html {render action: 'index' }
+        format.html {render nothing: true }
       end
       format.json { render json: @articles }
     end
