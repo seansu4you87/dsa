@@ -5,6 +5,8 @@
 		<%= stylesheet_link_tag "main" %>
 		<%= javascript_include_tag "application", "jquery-1.7.1.min.js", "jquery.wt-rotator.min.js" %>
 		
+		<title>COCO DSA</title>
+		
 		<script type="text/javascript">
 		$(document).ready(function() {
 		      $(".container").wtRotator({
@@ -65,15 +67,15 @@
 		        	</div>
 		        <% else %>
 		        	<div id="login">
-						<%= link_to_unless_current('Admin', admin_url){|link|content_tag 'span', link, :class => 'current'} %>                         &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Users', users_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Posts', posts_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Articles', articles_path){|link|content_tag 'span', link, :class => 'current'} %>                  &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Photos', photos_path){|link|content_tag 'span', link, :class => 'current'} %>                      &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Categories', categories_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Polls', polls_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to_unless_current('Menu Items', menu_items_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
-					    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
+								<%= link_to_unless_current('Admin', admin_url){|link|content_tag 'span', link, :class => 'current'} %>                         &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Users', users_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Posts', posts_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Articles', articles_path){|link|content_tag 'span', link, :class => 'current'} %>                  &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Photos', photos_path){|link|content_tag 'span', link, :class => 'current'} %>                      &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Categories', categories_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Polls', polls_path){|link|content_tag 'span', link, :class => 'current'} %>                        &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to_unless_current('Menu Items', menu_items_path){|link|content_tag 'span', link, :class => 'current'} %>              &nbsp;&nbsp;|&nbsp;&nbsp;
+						    <%= link_to 'Logout', logout_url, method: :delete, confirm: "Are you sure?"  %>
 					
 		        	</div>
 		        <% end %>
@@ -171,7 +173,7 @@
 				&copy;2012 COCO DSA &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;All Rights Reserved
 				
 				<div class="social_media">
-					<a href="http://www.facebook.com/pages/Contra-Costa-County-Deputy-Sheriffs-Association/171114546265456" class="fb">Coco DSA on FB</a>
+					<a href="http://www.facebook.com/pages/Contra-Costa-County-Deputy-Sheriffs-Association/171114546265456" target="_blank" class="fb">Coco DSA on FB</a>
 				</div>
 			</div>
 		</div>
