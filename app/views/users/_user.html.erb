@@ -4,6 +4,7 @@
   <p><strong>Posts: </strong><%= user.posts.count%></p>
   <p><strong>Articles: </strong><%= user.articles.count%></p>
   <p><strong>Photos: </strong><%= user.photos.count%></p>
+  <p><strong>Admin: </strong><%= user.admin %></p>
   <%= render :partial => 'categories/category_links', :locals => {:categories => user.categories } %>
   <%= link_to 'Show', user %>
   <%= link_to 'Edit', edit_user_path(user) %>
